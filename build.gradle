@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+
+// Primer on Groovy and Gradle
+def var1 = "var1" // A string variable declared and assigned outside a closure/function
+def var2 = 4 // An integer
+// Both of the above given variables are of type Object
+task task1 {
+    group = "MyTasks" // Assign value to the group property
+    description = "Learning to write tasks in Gradle" // Write the description
+
+    doLast {
+        println("Hello, World!") // A single line comment
+
+        / * A Multi line comment
+            Print a stored variable. 
+            Strings can be concatenated. 
+            Parentheses are not mandatory
+        */
+        println var1 + " is my variable "
+
+        println var1 + 2 // adding a digit to a string - No string conversion required.
+
+        // operators for strings and numbers
+        println(var2 + 3)
+        def var3 = var2 + 2 // type of var3 is integer and var2 and var1 are Objects
+        println(var3 * var2) // multiplication
+        print(var3 / var2 + "\n") // division prints float and observe the concatenation of new line "\n"
+
+        def mylist = [1, 2, 3] // creating a list
+        //  for loop on list items
+        for (def i=0; i <= mylist.size() -1  ; i++){ // loop using for
+            println(mylist[i])
+        }
+
+        def i=0
+        while (i<=mylist.size() - 1) {
+            println(mylist[i])
+            i++
+        }
+    }
+}
+
